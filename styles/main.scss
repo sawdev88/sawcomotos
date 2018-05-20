@@ -1,0 +1,172 @@
+$dark: #1c1a1a;
+$white: rgb(240,240,240);
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'pecita';  // declare the font name
+	src: local('fonts/Pecita.otf') format('opentype');
+}
+
+h1, h2, h3, h4, h5, h6, p, li, ul, span, body, html {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto Mono', monospace;
+}
+
+html {
+  font-size: 1.5vw;
+}
+
+h1 {
+  font-size: 4rem;
+  font-family: 'pecita', sans-serif;
+  line-height: 3rem;
+}
+
+ul {
+  list-style: none;
+}
+
+li, a, p {
+  font-size: .8rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.full {
+  height: 100vh;
+  width: 100vw;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ease {
+  transition: .3s ease-in-out;
+}
+
+.ease-long {
+  transition: .5s ease-in-out;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+
+
+// Header
+#banner {
+  position: relative;
+  background: $dark;
+  color: $white;
+
+  h1 {
+    color: rgb(180,180,180);
+  }
+}
+
+.hero-bg  {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url('../img/hero.jpg') no-repeat center center / cover;
+  z-index: 2;
+  display: none;
+}
+
+.callout {
+  z-index: 3;
+}
+
+.loading-dots {
+  margin-top: -.75rem;
+}
+
+.dot {
+  height: .25rem;
+  width: .25rem;
+  margin: 0 1rem;
+  border-radius: 50%;
+  background: rgba(240,240,240,.5);
+  display: inline-block;
+  animation: 2s blink infinite;
+
+  &:nth-child(2) { animation-delay: 750ms }
+  &:nth-child(3) { animation-delay: 1250ms }
+}
+
+#nav {
+  opacity: 0;
+
+  ul {
+    margin-left: .2rem;
+  }
+
+  li {
+    margin: .5rem 0;
+    color: rgba(240,240,240,.8);
+  }
+}
+
+.fade {
+  animation: 1.75s fade forwards;
+}
+
+.show-nav {
+  animation: 1.5s nav forwards;
+}
+
+@keyframes blink {
+  50% { background: #fff }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0.1;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    top: 2rem;
+    left: 2rem;
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  100% {
+    top: 2rem;
+    left: 2rem;
+    transform: translate(0, 0);
+    opacity: 1;
+    text-align: left;
+  }
+}
+
+@keyframes nav {
+  100% {
+    opacity: 1;
+  }
+}
